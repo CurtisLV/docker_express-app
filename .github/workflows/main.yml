@@ -26,6 +26,7 @@ jobs:
             - name: Build and push Docker image
               uses: docker/build-push-action@v7
               with:
-                  context: .
+                  context: ./express-app
+                  file: ./express-app/Dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker_express-app:latest
