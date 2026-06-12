@@ -2,13 +2,14 @@ services:
     express-app:
         image: curtislv/docker_express-app:latest
         ports:
-            - 3000:3000
+            - 8080:8080
         restart: always
 
     watchtower:
         image: containrrr/watchtower
         environment:
             - WATCHTOWER_POLL_INTERVAL=60
+            - DOCKER_API_VERSION=1.44
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         container_name: watchtower
